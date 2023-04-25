@@ -28,10 +28,7 @@ function extractValuesFromJsonArray(jsonTextArray, jsonKey) {
                 extractedValues.push(value);
             }
         }
-        // const value = jsonObject[jsonKey];
-        // if (value !== undefined && value !== null && value.toString().trim() !== '') {
-        //     extractedValues.push(value);
-        // }
+
     }
     return extractedValues;
 }
