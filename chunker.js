@@ -16,7 +16,7 @@ function processText() {
         document.getElementById("output").innerHTML = outputText;
     }
 }
-function extractValuesFromJsonArray(jsonTextArray: Record<string, any>[], jsonKey: string): any[] {
+function extractValuesFromJsonArray(jsonTextArray, jsonKey) {
     const extractedValues: any[] = [];
     for (const jsonObject of jsonTextArray) {
         for (const elem of jsonObject) {
