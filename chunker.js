@@ -5,7 +5,7 @@ function processText() {
     const jsonKey = document.getElementById("json-key").value;
     const wordsPerChunk = document.getElementById("wordsPerChunk").value;
     const jsonTextArray = JSON.parse(`[${inputText}]`);
-    prettyPrintJson(jsonTextArray[0]);
+    prettyPrintJson(jsonTextArray);
     const extractedValues = extractValuesFromJsonArray(jsonTextArray, jsonKey);
     if (wordsPerChunk === undefined || wordsPerChunk === null || wordsPerChunk.toString().trim() === '') {
         document.getElementById("output").innerHTML = extractedValues.join("\n\n<p/><p/>\n\n");
@@ -39,8 +39,8 @@ function extractValuesFromJsonArray(jsonTextArray, jsonKey) {
 function prettyPrintJson(jsonInput) {
     try {
         // Parse the input JSON string
-        const jsonObj = JSON.parse(jsonInput);
-
+        const jsonObj = JSON.parse(jsonInput[0]);
+        console.log(jsonObj);
         // Pretty-print the JSON object with a 2-space indentation
         const prettyJson = JSON.stringify(jsonObj, null, 2);
 
