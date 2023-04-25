@@ -16,32 +16,32 @@ function processText() {
         document.getElementById("output").innerHTML = outputText;
     }
 }
-// function extractValuesFromJsonArray(jsonTextArray: Record<string, any>[], jsonKey: string): any[] {
-//     const extractedValues: any[] = [];
-//     for (const jsonObject of jsonTextArray) {
-//         for (const elem of jsonObject) {
-//             const value = elem[jsonKey];
-//             if (value !== undefined && value !== null && value.toString().trim() !== '') {
-//                 extractedValues.push(value);
-//             }
-//         }
-//         // const value = jsonObject[jsonKey];
-//         // if (value !== undefined && value !== null && value.toString().trim() !== '') {
-//         //     extractedValues.push(value);
-//         // }
-//     }
-//     return extractedValues;
-// }
-function extractValuesFromJsonArray(jsonTextArray, jsonKey) {
-    const extractedValues = [];
+function extractValuesFromJsonArray(jsonTextArray: Record<string, any>[], jsonKey: string): any[] {
+    const extractedValues: any[] = [];
     for (const jsonObject of jsonTextArray) {
-        const value = jsonObject[jsonKey];
-        if (value !== undefined && value !== null && value.toString().trim() !== '') {
-            extractedValues.push(value);
+        for (const elem of jsonObject) {
+            const value = elem[jsonKey];
+            if (value !== undefined && value !== null && value.toString().trim() !== '') {
+                extractedValues.push(value);
+            }
         }
+        // const value = jsonObject[jsonKey];
+        // if (value !== undefined && value !== null && value.toString().trim() !== '') {
+        //     extractedValues.push(value);
+        // }
     }
     return extractedValues;
 }
+// function extractValuesFromJsonArray(jsonTextArray, jsonKey) {
+//     const extractedValues = [];
+//     for (const jsonObject of jsonTextArray) {
+//         const value = jsonObject[jsonKey];
+//         if (value !== undefined && value !== null && value.toString().trim() !== '') {
+//             extractedValues.push(value);
+//         }
+//     }
+//     return extractedValues;
+// }
 function splitTextIntoChunks(text, wordsPerChunk) {
     const words = text.split(" ");
     const chunks = [];
