@@ -29,6 +29,7 @@ function parseJson() {
       result.textContent = item[keyname];
       console.log(item[keyname]);
       results.appendChild(result);
+      results.appendChild("li");
     }
   }
   
