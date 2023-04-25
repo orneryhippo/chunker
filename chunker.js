@@ -1,9 +1,11 @@
 "use strict";
+
 function processText() {
     const inputText = document.getElementById("inputText").value;
     const jsonKey = document.getElementById("json-key").value;
     const wordsPerChunk = document.getElementById("wordsPerChunk").value;
     const jsonTextArray = JSON.parse(`[${inputText}]`);
+    prettyPrintJson(jsonTextArray[0]);
     const extractedValues = extractValuesFromJsonArray(jsonTextArray, jsonKey);
     if (wordsPerChunk === undefined || wordsPerChunk === null || wordsPerChunk.toString().trim() === '') {
         document.getElementById("output").innerHTML = extractedValues.join("\n\n<p/><p/>\n\n");
@@ -16,6 +18,7 @@ function processText() {
         document.getElementById("output").innerHTML = outputText;
     }
 }
+
 function extractValuesFromJsonArray(jsonTextArray, jsonKey) {
     const extractedValues = [];
     for (const jsonObject of jsonTextArray) {
@@ -32,6 +35,23 @@ function extractValuesFromJsonArray(jsonTextArray, jsonKey) {
     }
     return extractedValues;
 }
+
+function prettyPrintJson(jsonInput) {
+    try {
+        // Parse the input JSON string
+        const jsonObj = JSON.parse(jsonInput);
+
+        // Pretty-print the JSON object with a 2-space indentation
+        const prettyJson = JSON.stringify(jsonObj, null, 2);
+
+        // Set the output div's innerHTML with the pretty-printed JSON
+        document.getElementById("pretty").innerHTML = `<pre>${prettyJson}</pre>`;
+    } catch (error) {
+        // If there's an error (e.g., invalid JSON input), display the error message
+        document.getElementById("output").innerHTML = `<pre>${error.message}</pre>`;
+    }
+}
+  
 // function extractValuesFromJsonArray(jsonTextArray, jsonKey) {
 //     const extractedValues = [];
 //     for (const jsonObject of jsonTextArray) {
