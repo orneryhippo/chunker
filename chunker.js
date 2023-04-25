@@ -6,23 +6,37 @@ function processText() {
     const jsonTextArray = JSON.parse(`[${inputText}]`);
     const extractedValues = extractValuesFromJsonArray(jsonTextArray, jsonKey);
     if (wordsPerChunk === undefined || wordsPerChunk === null || wordsPerChunk.toString().trim() === '') {
-        document.getElementById("output").innerHTML = extractedValues.join("\n\n---\n\n");
+        document.getElementById("output").innerHTML = extractedValues.join("\n\n<p/><p/>\n\n");
     }
     else {
         const joinedText = extractedValues.join(" ");
         const chunks = splitTextIntoChunks(joinedText, Number(wordsPerChunk));
-        const outputText = chunks.join("\n\n---\n\n");
+        const outputText = chunks.join("\n\n<p/><p/>\n\n");
         document.getElementById("output").innerHTML = outputText;
     }
 }
+// function extractValuesFromJsonArray(jsonTextArray: Record<string, any>[], jsonKey: string): any[] {
+//     const extractedValues: any[] = [];
+//     for (const jsonObject of jsonTextArray) {
+//         for (const elem of jsonObject) {
+//             const value = elem[jsonKey];
+//             if (value !== undefined && value !== null && value.toString().trim() !== '') {
+//                 extractedValues.push(value);
+//             }
+//         }
+//         // const value = jsonObject[jsonKey];
+//         // if (value !== undefined && value !== null && value.toString().trim() !== '') {
+//         //     extractedValues.push(value);
+//         // }
+//     }
+//     return extractedValues;
+// }
 function extractValuesFromJsonArray(jsonTextArray, jsonKey) {
     const extractedValues = [];
     for (const jsonObject of jsonTextArray) {
-        for (const elem of jsonObject) {
-            const value = elem[jsonKey];
-            if (value !== undefined && value !== null && value.toString().trim() !== '') {
-                extractedValues.push(value);
-            }
+        const value = jsonObject[jsonKey];
+        if (value !== undefined && value !== null && value.toString().trim() !== '') {
+            extractedValues.push(value);
         }
     }
     return extractedValues;
