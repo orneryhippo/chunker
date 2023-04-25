@@ -38,12 +38,9 @@ function prettyPrintJson(jsonInput) {
         // Parse the input JSON string
         const firstElement = jsonInput[0][0];
         console.log(firstElement);
-        const jsonObj = JSON.parse(firstElement);
         
-        // const jsonObj = JSON.parse(firstElement);
-        console.log(jsonObj);
         // Pretty-print the JSON object with a 2-space indentation
-        const prettyJson = JSON.stringify(jsonObj, null, 2);
+        const prettyJson = JSON.stringify(firstElement, null, 2);
 
         // Set the output div's innerHTML with the pretty-printed JSON
         document.getElementById("pretty").innerHTML = `<pre>${prettyJson}</pre>`;
