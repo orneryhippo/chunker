@@ -17,7 +17,7 @@ function processText() {
     }
 }
 function extractValuesFromJsonArray(jsonTextArray, jsonKey) {
-    const extractedValues: any[] = [];
+    const extractedValues = [];
     for (const jsonObject of jsonTextArray) {
         for (const elem of jsonObject) {
             const value = elem[jsonKey];
