@@ -9,11 +9,11 @@ function processText() {
     const jsonTextArray = JSON.parse(`[${inputText}]`);
     const extractedValues = extractValuesFromJsonArray(jsonTextArray, jsonKey);
     if (wordsPerChunk === undefined || wordsPerChunk === null || wordsPerChunk.toString().trim() === '') {
-        (document.getElementById("output") as HTMLElementWithValue).innerHTML = extractedValues.join("\n\n---\n\n");
+        (document.getElementById("output") as HTMLElementWithValue).innerHTML = extractedValues.join("\n\n<p/><p/>\n\n");
     } else {
         const joinedText = extractedValues.join(" ");
         const chunks = splitTextIntoChunks(joinedText, Number(wordsPerChunk));
-        const outputText = chunks.join("\n\n---\n\n");
+        const outputText = chunks.join("\n\n<p/><p/>\n\n");
         (document.getElementById("output") as HTMLElement).innerHTML = outputText;
     }
 }
