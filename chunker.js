@@ -39,8 +39,10 @@ function extractValuesFromJsonArray(jsonTextArray, jsonKey) {
 function prettyPrintJson(jsonInput) {
     try {
         // Parse the input JSON string
-        const jsonObj = JSON.parse(jsonInput[0]);
-        // const firstElement = jsonArray[0];
+        const firstElement = jsonInput[0];
+        console.log(firstElement);
+        const jsonObj = JSON.parse(firstElement);
+        
         // const jsonObj = JSON.parse(firstElement);
         console.log(jsonObj);
         // Pretty-print the JSON object with a 2-space indentation
