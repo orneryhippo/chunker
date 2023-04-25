@@ -8,18 +8,19 @@
     <script src="./chunker.js"></script>
 </head>
 <body>
+    <a href="index.html">PrettyPrint JSON</a>
     <div class="container">
         <h1>Chunker</h1>
-        <p>Paste your large text into the text area below and set the number of words per chunk, then click "Process" to display the text.</p>
+        <p>Paste your array of json records into the text area below and set the number of words per chunk, then click "Process" to display the text.</p>
         <textarea id="inputText"></textarea>
         <label for="json-key">JSON Key:</label>
         <input type="text" id="json-key" value="articleBody"><p/>
+
+       
         <label for="wordsPerChunk">Words per chunk:</label>
         <input type="number" id="wordsPerChunk" min="1" value="100">
         <button id="processBtn" onclick="processText()">Process</button><p/>
-        <label for="pretty">"Pretty" Print One Record:</label>
-        <div id="pretty"></div>
-        <label for="output">List of items/chunks:</label>
+        <label for="output">Output:</label>
         <div id="output"></div>
         <!-- <textarea id="output" readonly></textarea> -->
     </div>

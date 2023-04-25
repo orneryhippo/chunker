@@ -8,13 +8,22 @@
     <script src="index.js"></script>
 </head>
 <body>
+    <a href="chunker.html">Chunk JSON elements</a>
+    <div class="container">
   <h1>Parse JSON</h1>
   
-  <p>Paste your JSON Array into the text area below and set the number of words per chunk, then click "Process" to display the text.</p>
+  <p>Paste your JSON array into the text area below, select One or All, then click "Pretty" print to display the record(s).</p>
   <textarea id="json-input" rows="10" cols="50" value="{}"></textarea>
   <!-- <input type="text" id="json-input" /> -->
-  <input type="text" id="keyname-input" value="articleBody"/>
-  <button onclick="parseJson()">Parse JSON</button>
-  <ul id="results"></ul>
+  
+   <label><input type="radio" name="printOption" value="none" > None</label>
+  <label><input type="radio" name="printOption" value="one" checked> One</label>
+  <label><input type="radio" name="printOption" value="all"> All</label>
+
+  <button onclick="prettyPrint()">"Pretty" print JSON</button>
+
+  <p/>
+  <div id="output"></div>
+  </div>
 </body>
 </html>

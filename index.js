@@ -1,35 +1,34 @@
-function parseJson() {
-     // Get the keyname from the user.
-    var keyname = document.getElementById("keyname-input");
-    if (keyname) {
-      var keynameValue = keyname.value;
-    } else {
-      keynameValue = "name";
-    }
-    console.log(keynameValue);
-    // Get the JSON input from the user.
-    var json = document.getElementById("json-input").value;
-    // console.log(json.length);
-    // Parse the JSON into a JavaScript object.
-    var obj = JSON.parse(json);
-    console.log(obj);
-   
-    
-    // Get the list of items from the JSON object.
-    // var items = obj.items;
-    // console.log(items);
-    // Create a new unordered list to display the results.
-    var results = document.getElementById("results");
+function prettyPrint() {
+    const inputText = document.getElementById("json-input").value;
+    const printOption = document.querySelector('input[name="printOption"]:checked').value;
   
-    // Loop through the items and add them to the unordered list.
-    for (var i = 0; i < obj.length; i++) {
-      var item = obj[i];
-      console.log(item);  
-      var result = document.createElement("li");
-      result.textContent = item[keyname];
-      console.log(item[keyname]);
-      results.appendChild(result);
-      results.appendChild(document.createElement("li"));
+    prettyPrintJson(inputText, printOption);
+  }
+  
+  function prettyPrintJson(inputText, printOption) {
+    try {
+      const jsonArray = JSON.parse(inputText);
+      let output = '';
+  
+      if (printOption === 'none') {
+        output = '<pre></pre>';
+      } else if (printOption === 'one') {
+        const firstElement = jsonArray[0];
+        const prettyJson = JSON.stringify(firstElement, null, 2);
+        output = `<pre>${prettyJson}</pre>`;
+      } else if (printOption === 'all') {
+        jsonArray.forEach((jsonObject, index) => {
+          const prettyJson = JSON.stringify(jsonObject, null, 2);
+          output += `<pre>${prettyJson}</pre>`;
+          if (index < jsonArray.length - 1) {
+            output += '<hr>';
+          }
+        });
+      }
+  
+      document.getElementById('output').innerHTML = output;
+    } catch (error) {
+      document.getElementById('output').innerHTML = `<pre>${error.message}</pre>`;
     }
   }
   
