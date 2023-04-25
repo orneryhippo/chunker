@@ -39,7 +39,7 @@ function extractValuesFromJsonArray(jsonTextArray, jsonKey) {
 function prettyPrintJson(jsonInput) {
     try {
         // Parse the input JSON string
-        const firstElement = jsonInput[0];
+        const firstElement = jsonInput[0][0];
         console.log(firstElement);
         const jsonObj = JSON.parse(firstElement);
         
