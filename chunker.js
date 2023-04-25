@@ -12,6 +12,7 @@ function processText() {
         const joinedText = extractedValues.join(" ");
         const chunks = splitTextIntoChunks(joinedText, Number(wordsPerChunk));
         const outputText = chunks.join("\n\n<p/><p/>\n\n");
+        console.log(outputText);
         document.getElementById("output").innerHTML = outputText;
     }
 }

@@ -24,7 +24,7 @@ function parseJson() {
     // Loop through the items and add them to the unordered list.
     for (var i = 0; i < obj.length; i++) {
       var item = obj[i];
-    //   console.log(item);  
+      console.log(item);  
       var result = document.createElement("li");
       result.textContent = item[keyname];
       console.log(item[keyname]);
