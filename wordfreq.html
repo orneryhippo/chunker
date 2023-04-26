@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Frequency</title>
+    <link rel="stylesheet" href="chunker.css">
+    <script src="wordfreq.js"></script> 
+</head>
+<body>
+    <a href="index.html">PrettyPrint JSON</a><p/>
+    <a href="chunker.html">Chunk JSON elements</a>
+    <div class="container">
+        <h1>Word Frequency</h1>
+        <p>Paste your text into the text area below then click "Process" to display the frequency of each word in the text.</p>
+        <textarea id="inputText"></textarea>
+        <button id="processBtn" onclick="displayWordFreqs()">Process</button><p/>
+        <label for="output">Output:</label>
+        <div id="wordcount"></div>
+        <div id="output"></div>
+        <!-- <textarea id="output" readonly></textarea> -->
+    </div>
+
+
+</body>
+</html>
