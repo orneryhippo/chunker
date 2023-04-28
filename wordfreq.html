@@ -14,6 +14,8 @@
         <h1>Word Frequency</h1>
         <p>Paste your text into the text area below then click "Process" to display the frequency of each word in the text.</p>
         <textarea id="inputText"></textarea>
+        <label for="wordsPerTuple">Words per tuple:</label>
+        <input type="number" id="wordsPerTuple" min="1" value="1">
         <button id="processBtn" onclick="displayWordFreqs()">Process</button><p/>
         <label for="output">Output:</label>
         <div id="wordcount"></div>
